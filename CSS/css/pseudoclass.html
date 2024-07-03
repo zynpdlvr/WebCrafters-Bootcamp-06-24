@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo</title>
+    <style>
+        body{
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: cadetblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container{
+            text-align: center;
+        }
+        .classb{
+            background-color: darkslateblue;
+            color: azure;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: dotted;
+            display: inline-block;
+            font-size: 10px;
+        }
+        .classb:hover{
+            background-color: black;
+        }
+        .active:active{
+            background-color: aqua;
+        }
+        .input:focus{
+            outline: none;
+            border: 3px solid blue;
+        }
+        .list li:nth-child(2){
+            color: aquamarine;
+        }
+        .list li:first-child{
+            text-decoration: underline;
+        }
+        .checkbox:checked + label{
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <v class="container">
+        <button class="classb">
+            tohover
+        </button>
+        <button class="classb active">
+            active
+        </button>
+        <input type="text" class="input" placeholder="input here">
+
+        <ul class="list">
+            <li>first</li>
+            <li>second</li>
+            <li>third</li>
+        </ul>
+
+        <input type="checkbox" id="check" class="checkc">
+
+    </v>
+</body>
+</html>

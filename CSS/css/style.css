@@ -1,3 +1,210 @@
-h1{
-   color: blue;
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    pad: 0;
+
+}
+header{
+    background-color: antiquewhite;
+    color: aliceblue;
+    padding: 20px;
+}
+
+.navbar ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+.navbar ul li{
+    margin: 0 15px;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: rgb(168, 93, 0);
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+}
+.navbar ul li a:hover{
+    background-color: blueviolet;
+}
+
+section{
+    text-align: center;
+    margin: 30px;
+    padding: 15px;
+}
+
+.image-home img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-home img:hover{
+    transform:  scale(1.1);
+}
+
+.info-con{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.info{
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    text-align: center;
+    background-color: azure;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition:  transform 0.3s ease-in-out;
+}
+
+.info:hover{
+        transform: translateY(-10px);
+}
+
+#Education{
+    text-align: center;
+}
+
+#Education h2,#Education  p{
+    margin-bottom: 15px;
+}
+
+.pcon{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.pcard{
+    width: 30%;
+    margin: 0px;
+    text-align: center;
+    position: relative;
+}
+
+.pcard img{
+    width: 100%;
+    border-radius: 12px;
+}
+
+.pover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: blanchedalmond;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 12px;
+}
+
+.pcard:hover{
+    opacity:1;
+    background-color: aqua;
+}
+
+.pover p{
+    color: brown;
+    font-size: 16px;
+    margin: 0;
+}
+
+#con{
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+#con h2{
+    text-align: center;
+}
+.card-sec{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.card{
+    width: 30%;
+    padding: 20px;
+    padding-right: 30px;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.card:hover{
+    background-color: rgb(187, 151, 106);
+}
+.card-con{
+    display: flex;
+}
+.card img{
+    width: 100px;
+    height: auto;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.card-desc{
+    flex: 1;
+}
+.card-desc h3{
+    margin-top: 0;
+    font-size: 1.2em;
+}
+.card-desc p{
+    font-size: 0.9em;
+    color: #555;
+}
+
+footer{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+@media only screen and (max-width: 480px){
+    .info{
+        width: 100%;
+    }
+    .project-card{
+        width: 100%;
+    }
+    .card-section{
+        flex-wrap: wrap;
+    }
+    .card{
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .card-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card img{
+        width: 100%;
+        border-radius: 5px 5px 0 0;
+    }
+    .card-description{
+       padding: 10px;
+       border: 1px solid #ccc;
+       border-top: none;
+       border-radius: 0 0 5px 5px;
+       text-align: center;
+    }
+    footer{
+        background-color: aqua;
+    }
 }
