@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+    />
+    <title>Movies</title>
+    <style>
+      body {
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mb-4">Movie Archive</h1>
+      <div class="mb-3">
+        <label for="moviename" class="form-label">Movie Name</label>
+        <input type="text" class="form-control" id="moviename" />
+      </div>
+      <div class="mb-3">
+        <label for="img" class="form-label">Movie Image</label>
+        <input type="text" class="form-control" id="img" />
+      </div>
+      <button class="btn btn-success" onclick="addMovie()">Add</button>
+
+      <h2 class="mt-4">Watch List</h2>
+      <div id="watchlist"></div>
+      <h2 class="mt-4">Watched List</h2>
+      <div id="watchedlist"></div>
+    </div>
+
+    <script>
+      function addMovie() {
+        console.log('called add movie');
+        var name = document.getElementById('moviename').value;
+        var img = document.getElementById('img').value;
+
+        if (name.trim() === "") {
+          alert("Enter name.");
+          return;
+        }
+        if (img.trim() === "") {
+          alert("Enter image url.");
+          return;
+        }
+        var list1 = document.getElementById('watchlist');
+        var listitem = document.createElement('div');
+        listitem.className =
+          "d-flex justify-content-between align-items-center border-bottom mb-2";
+
+        var content = document.createElement('div');
+        content.className = "d-flex align-items-center";
+
+        var mimg = document.createElement('img');
+        mimg.src = img;
+        mimg.alt = name;
+        mimg.className = "movie-image me-2";
+
+        var title = document.createElement('span');
+        title.textContent = name;
+        title.className = "movie-title";
+
+        content.appendChild(mimg);
+        content.appendChild(title);
+
+        var buttons = document.createElement('div');
+        buttons.innerHTML = 
+            `<button class= "btn btn-success me-2" 
+            onclick="watchMovie(this)">Watched</button>
+            <button class= "btn btn-danger me-2" onclick="removeMovie(this)">Remove</button>
+            `;
+
+        listitem.appendChild(content);
+        listitem.appendChild(buttons);
+
+        list1.appendChild(listitem);
+
+        document.getElementById('moviename').value = "";
+        document.getElementById('img').value = "";
+      }
+      function watchMovie(button) {
+        var listItem = button.parentNode.parentNode;
+
+        var watchedList = document.getElementById("watchedlist");
+        
+        var emotion = prompt("Your opinions:");
+
+        var movieContent = listItem.querySelector(
+          ".d-flex .align-items-center"
+        );
+
+        var movieImage = movieContent.querySelector(".movie-image");
+        var name = movieContent.querySelector(".movie-title");
+        console.log('name:',name);
+
+        var smallImage = movieImage.cloneNode();
+        smallImage.className = "movie-image me-2";
+
+        listItem.innerHTML = "";
+        
+        listItem.appendChild(smallImage);
+        listItem.appendChild(name);
+        listItem.innerHTML += `<span>${emotion}</span>`;
+
+        watchedList.appendChild(listItem);
+
+        button.parentNode.innerHTML =
+          '<span class="text-success">Watched</span>';
+      }
+
+      function removeMovie(button) {
+        var listItem = button.parentNode.parentNode;
+        listItem.remove();
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

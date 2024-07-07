@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        .box{
+            background-color: rgb(212, 93, 117);
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="22">dom</h1>
+    <div class="box" id="box1"> box 1</div>
+    <div class="box" id="box2"> box 2</div>
+    <div class="box" id="box3"> box 3</div>
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <p>hi!!</p>
+    <button onclick="pressed()">Press</button>
+
+    <script>
+        console.log("doc object: " ,document);
+        console.log("title", document.title);
+
+        let title = document.getElementById("22");
+        let boxes = document.getElementsByClassName("box");
+        let text = document.getElementsByTagName("p");
+        let firstbox = document.querySelector(".box");
+        let allboxes = document.querySelectorAll(".box");
+
+        console.log("Title: ", title);
+        console.log("boxes: ", boxes);
+        console.log("text: ", text);
+        console.log("firstbox: ", firstbox);
+        console.log("allboxes: ", allboxes);
+
+        title.style.color = "Pink";
+        title.style.fontSize = "34px";
+
+        let list = document.getElementById("list");
+        let first = list.firstChild;
+        let last = list.lastChild;
+        let second = first.nextSibling;
+
+        console.log("parents:" , list.parentNode);
+        console.log("childs:" , list.childNodes);
+        console.log("children:" , list.children);
+
+
+        function pressed()
+        {
+            let newarr = document.createElement("div");
+            newarr.textContent= "an arr i just created in js";
+            document.body.appendChild(newarr);
+
+            let newp = document.createElement("p");
+            let textnode = document.createTextNode("new text addition");
+            newp.appendChild(textnode);
+            document.body.insertBefore(newp,newarr);
+        }
+
+        let boxx = document.getElementById("box3");
+        boxx.style.color = "white";
+
+        let old = document.getElementById("box1");
+
+
+
+
+        let link = document.createElement("a");
+        link.textContent = "a link";
+        link.setAttribute("href","https://chatgpt.com/");
+        link.setAttribute("target","_blank");
+        document.body.appendChild(link);
+
+        let currref = link.getAttribute("href");
+        console.log("href: " , currref);
+
+        //link.removeAttribute("href");
+
+    </script>
+</body>
+</html>
