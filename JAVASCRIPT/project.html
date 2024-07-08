@@ -12,6 +12,16 @@
       body {
         padding: 20px;
       }
+      .movie-image{
+            width: 100px;
+            height: 100px;
+            object-fit: cover; 
+            object-position: center;
+            overflow: hidden;
+        }
+        .movie-title{
+            text-align: center;
+        }
     </style>
   </head>
   <body>
@@ -84,7 +94,8 @@
       }
       function watchMovie(button) {
         var listItem = button.parentNode.parentNode;
-
+        listItem.className =
+          "d-flex justify-content-between align-items-center border-bottom mb-2";
         var watchedList = document.getElementById("watchedlist");
         
         var emotion = prompt("Your opinions:");
