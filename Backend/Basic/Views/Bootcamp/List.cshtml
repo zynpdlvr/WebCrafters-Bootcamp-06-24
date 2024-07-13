@@ -1,0 +1,21 @@
+@model List<Basic.Models.Bootcamp>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc</title>
+</head>
+<body>
+    <h2>Bootcamp List</h2>
+    @foreach ( var bootcamp in Model)
+    {
+        <div id="bootcamp_@bootcamp.Id">
+            <h2>@bootcamp.Title</h2>
+            <h2>@bootcamp.Desc</h2>
+            <br>
+        </div>
+    }
+</body>
+</html>
